@@ -125,9 +125,9 @@ class SqlRun(Base):
     """
     Run UUID: `String` (limit 32 characters). *Primary Key* for ``runs`` table.
     """
-    name = Column(String(250))
+    name = Column(String(150))
     """
-    Run name: `String` (limit 250 characters).
+    Run name: `String` (limit 150 characters).
     """
     source_type = Column(String(20), default=SourceType.to_string(SourceType.LOCAL))
     """
@@ -249,9 +249,9 @@ class SqlExperimentTag(Base):
 
     __tablename__ = "experiment_tags"
 
-    key = Column(String(250))
+    key = Column(String(150))
     """
-    Tag key: `String` (limit 250 characters). *Primary Key* for ``tags`` table.
+    Tag key: `String` (limit 150 characters). *Primary Key* for ``tags`` table.
     """
     value = Column(String(5000), nullable=True)
     """
@@ -292,13 +292,13 @@ class SqlTag(Base):
         Index(f"index_{__tablename__}_run_uuid", "run_uuid"),
     )
 
-    key = Column(String(250))
+    key = Column(String(150))
     """
-    Tag key: `String` (limit 250 characters). *Primary Key* for ``tags`` table.
+    Tag key: `String` (limit 150 characters). *Primary Key* for ``tags`` table.
     """
     value = Column(String(5000), nullable=True)
     """
-    Value associated with tag: `String` (limit 250 characters). Could be *null*.
+    Value associated with tag: `String` (limit 150 characters). Could be *null*.
     """
     run_uuid = Column(String(32), ForeignKey("runs.run_uuid"))
     """
@@ -331,9 +331,9 @@ class SqlMetric(Base):
         Index(f"index_{__tablename__}_run_uuid", "run_uuid"),
     )
 
-    key = Column(String(250))
+    key = Column(String(150))
     """
-    Metric key: `String` (limit 250 characters). Part of *Primary Key* for ``metrics`` table.
+    Metric key: `String` (limit 150 characters). Part of *Primary Key* for ``metrics`` table.
     """
     value = Column(sa.types.Float(precision=53), nullable=False)
     """
@@ -387,9 +387,9 @@ class SqlLatestMetric(Base):
         Index(f"index_{__tablename__}_run_uuid", "run_uuid"),
     )
 
-    key = Column(String(250))
+    key = Column(String(150))
     """
-    Metric key: `String` (limit 250 characters). Part of *Primary Key* for ``latest_metrics`` table.
+    Metric key: `String` (limit 150 characters). Part of *Primary Key* for ``latest_metrics`` table.
     """
     value = Column(sa.types.Float(precision=53), nullable=False)
     """
@@ -443,9 +443,9 @@ class SqlParam(Base):
         Index(f"index_{__tablename__}_run_uuid", "run_uuid"),
     )
 
-    key = Column(String(250))
+    key = Column(String(150))
     """
-    Param key: `String` (limit 250 characters). Part of *Primary Key* for ``params`` table.
+    Param key: `String` (limit 150 characters). Part of *Primary Key* for ``params`` table.
     """
     value = Column(String(8000), nullable=False)
     """
