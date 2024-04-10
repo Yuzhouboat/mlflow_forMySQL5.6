@@ -32,7 +32,7 @@ class SqlRun(Base):
 
 class SqlTag(Base):
     __tablename__ = "tags"
-    key = Column(String(250))
+    key = Column(String(150))
     value = Column(String(250), nullable=True)
     run_uuid = Column(String(32), ForeignKey("runs.run_uuid"))
     run = relationship("SqlRun", backref=backref("tags", cascade="all"))
