@@ -84,9 +84,9 @@ class SqlRun(Base):
     """
     Run UUID: `String` (limit 32 characters). *Primary Key* for ``runs`` table.
     """
-    name = Column(String(250))
+    name = Column(String(150))
     """
-    Run name: `String` (limit 250 characters).
+    Run name: `String` (limit 150 characters).
     """
     source_type = Column(String(20), default="LOCAL")
     """
@@ -159,9 +159,9 @@ class SqlTag(Base):
 
     __tablename__ = "tags"
 
-    key = Column(String(250))
+    key = Column(String(150))
     """
-    Tag key: `String` (limit 250 characters). *Primary Key* for ``tags`` table.
+    Tag key: `String` (limit 150 characters). *Primary Key* for ``tags`` table.
     """
     value = Column(String(250), nullable=True)
     """
@@ -185,9 +185,9 @@ class SqlTag(Base):
 class SqlMetric(Base):
     __tablename__ = "metrics"
 
-    key = Column(String(250))
+    key = Column(String(150))
     """
-    Metric key: `String` (limit 250 characters). Part of *Primary Key* for ``metrics`` table.
+    Metric key: `String` (limit 150 characters). Part of *Primary Key* for ``metrics`` table.
     """
     value = Column(Float, nullable=False)
     """
@@ -217,9 +217,9 @@ class SqlMetric(Base):
 class SqlParam(Base):
     __tablename__ = "params"
 
-    key = Column(String(250))
+    key = Column(String(150))
     """
-    Param key: `String` (limit 250 characters). Part of *Primary Key* for ``params`` table.
+    Param key: `String` (limit 150 characters). Part of *Primary Key* for ``params`` table.
     """
     value = Column(String(250), nullable=False)
     """
