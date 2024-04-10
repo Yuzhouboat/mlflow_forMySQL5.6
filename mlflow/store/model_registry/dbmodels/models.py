@@ -122,7 +122,7 @@ class SqlRegisteredModelTag(Base):
 
     name = Column(String(150), ForeignKey("registered_models.name", onupdate="cascade"))
 
-    key = Column(String(250), nullable=False)
+    key = Column(String(150), nullable=False)
 
     value = Column(String(5000), nullable=True)
 
@@ -148,7 +148,7 @@ class SqlModelVersionTag(Base):
 
     version = Column(Integer)
 
-    key = Column(String(250), nullable=False)
+    key = Column(String(150), nullable=False)
 
     value = Column(String(5000), nullable=True)
 
