@@ -25,7 +25,7 @@ from mlflow.utils.time import get_current_time_millis
 class SqlRegisteredModel(Base):
     __tablename__ = "registered_models"
 
-    name = Column(String(256), unique=True, nullable=False)
+    name = Column(String(150), unique=True, nullable=False)
 
     creation_time = Column(BigInteger, default=get_current_time_millis)
 
@@ -64,7 +64,7 @@ class SqlRegisteredModel(Base):
 class SqlModelVersion(Base):
     __tablename__ = "model_versions"
 
-    name = Column(String(256), ForeignKey("registered_models.name", onupdate="cascade"))
+    name = Column(String(150), ForeignKey("registered_models.name", onupdate="cascade"))
 
     version = Column(Integer, nullable=False)
 
@@ -74,7 +74,7 @@ class SqlModelVersion(Base):
 
     description = Column(String(5000), nullable=True)
 
-    user_id = Column(String(256), nullable=True, default=None)
+    user_id = Column(String(150), nullable=True, default=None)
 
     current_stage = Column(String(20), default=STAGE_NONE)
 
@@ -120,7 +120,7 @@ class SqlModelVersion(Base):
 class SqlRegisteredModelTag(Base):
     __tablename__ = "registered_model_tags"
 
-    name = Column(String(256), ForeignKey("registered_models.name", onupdate="cascade"))
+    name = Column(String(150), ForeignKey("registered_models.name", onupdate="cascade"))
 
     key = Column(String(250), nullable=False)
 
@@ -144,7 +144,7 @@ class SqlRegisteredModelTag(Base):
 class SqlModelVersionTag(Base):
     __tablename__ = "model_version_tags"
 
-    name = Column(String(256))
+    name = Column(String(150))
 
     version = Column(Integer)
 
@@ -179,7 +179,7 @@ class SqlModelVersionTag(Base):
 class SqlRegisteredModelAlias(Base):
     __tablename__ = "registered_model_aliases"
     name = Column(
-        String(256),
+        String(150),
         ForeignKey(
             "registered_models.name",
             onupdate="cascade",
@@ -187,7 +187,7 @@ class SqlRegisteredModelAlias(Base):
             name="registered_model_alias_name_fkey",
         ),
     )
-    alias = Column(String(256), nullable=False)
+    alias = Column(String(150), nullable=False)
     version = Column(Integer, nullable=False)
 
     # linked entities
